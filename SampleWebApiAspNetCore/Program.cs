@@ -27,7 +27,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddCustomCors("AllowAllOrigins");
 
 builder.Services.AddSingleton<ISeedDataService, SeedDataService>();
-builder.Services.AddScoped<IFoodRepository, FoodSqlRepository>();
+builder.Services.AddScoped<IHoloENRepository, HoloENSqlRepository>();
 builder.Services.AddScoped(typeof(ILinkService<>), typeof(LinkService<>));
 builder.Services.AddTransient<IConfigureOptions<SwaggerGenOptions>, ConfigureSwaggerOptions>();
 
@@ -37,10 +37,10 @@ builder.Services.AddSingleton<IUrlHelperFactory, UrlHelperFactory>();
 builder.Services.AddRouting(options => options.LowercaseUrls = true);
 builder.Services.AddVersioning();
 
-builder.Services.AddDbContext<FoodDbContext>(opt =>
-    opt.UseInMemoryDatabase("FoodDatabase"));
+builder.Services.AddDbContext<HoloENDbContext>(opt =>
+    opt.UseInMemoryDatabase("HoloENDatabase"));
 
-builder.Services.AddAutoMapper(typeof(FoodMappings));
+builder.Services.AddAutoMapper(typeof(HoloENMappings));
 
 var app = builder.Build();
 

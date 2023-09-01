@@ -5,12 +5,14 @@ namespace SampleWebApiAspNetCore.Services
 {
     public class SeedDataService : ISeedDataService
     {
-        public void Initialize(FoodDbContext context)
+        public void Initialize(HoloENDbContext context)
         {
-            context.FoodItems.Add(new FoodEntity() { Calories = 1000, Type = "Starter", Name = "Lasagne", Created = DateTime.Now });
-            context.FoodItems.Add(new FoodEntity() { Calories = 1100, Type = "Main", Name = "Hamburger", Created = DateTime.Now });
-            context.FoodItems.Add(new FoodEntity() { Calories = 1200, Type = "Dessert", Name = "Spaghetti", Created = DateTime.Now });
-            context.FoodItems.Add(new FoodEntity() { Calories = 1300, Type = "Starter", Name = "Pizza", Created = DateTime.Now });
+            context.HoloENItems.Add(new HoloENEntity() { Generation = 2, Type = "Council", Name = "Mumei", Created = DateTime.Now });
+            context.HoloENItems.Add(new HoloENEntity() { Generation = 2, Type = "Council", Name = "Kronii", Created = DateTime.Now });
+            context.HoloENItems.Add(new HoloENEntity() { Generation = 3, Type = "Advent", Name = "Shiori", Created = DateTime.Now });
+            context.HoloENItems.Add(new HoloENEntity() { Generation = 1, Type = "Myth", Name = "Ina", Created = DateTime.Now });
+            context.HoloENItems.Add(new HoloENEntity() { Generation = 3, Type = "Advent", Name = "Nerissa", Created = DateTime.Now });
+            context.HoloENItems.Add(new HoloENEntity() { Generation = 1, Type = "Myth", Name = "Amelia", Created = DateTime.Now });
 
             context.SaveChanges();
         }
